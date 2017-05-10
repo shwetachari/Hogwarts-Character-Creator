@@ -85,6 +85,24 @@ input[type="radio"]:checked ~ img{
   outline-width: 2px;
   outline-style: solid;
 }
+img:hover ~ .houseInfo {
+  display:block !important;
+  padding:30px;
+  min-height:20px;
+  width:200px;
+  size:inherit;
+  position: absolute;
+  z-index:15;
+  font-size:14px;
+  color:black;
+  background-color: rgba(255,255,255,.8);
+  top:-10px;
+  right:0px;
+  word-wrap: break-word;
+}
+.bold{
+  font-weight:bold;
+}
 .hidden{
   display:none;
 }
