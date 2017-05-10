@@ -36,6 +36,14 @@ function submitForm(){
 // Question 1 (NAME)
   var first = document.getElementById("firstName").value;
   var last = document.getElementById("lastName").value;
+  // regex for both first and last name
+  var nameRegex = /^[a-zA-Z-\s]{2,25}$/;
+  // var test if first name matches regex
+  var firstBool = nameRegex.test(first);
+  // var test if last name matches regex
+  var lastBool = nameRegex.test(last);
+  // test in console
+  console.log(firstBool + " " + lastBool);
 // if value = "", alert user
 // else below
   if (first == "") {
@@ -50,13 +58,20 @@ function submitForm(){
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");
   return false;
   return;
+} else if (firstBool == false) {
+  status.className = "failure col-xs-12 text-center";
+  status.innerHTML = "Invalid First Name (must be 2-25 characters and can only include letters a-z, spaces, and hyphens)";
+  return;
+} else if (lastBool == false) {
+  status.className = "failure col-xs-12 text-center";
+  status.innerHTML = "Invalid Last Name (must be 2-25 characters and can only include letters a-z, spaces, and hyphens)";
+  return;
 } else {
     firstName = first[0].toUpperCase() + first.substring(1);
     lastName = last[0].toUpperCase() + last.substring(1);
-    console.log(firstName + " " + lastName);
     status.className = "";
     status.innerHTML = "";
-  }
+}
 
 // Question 2 (GENDER)
 // if none selected, alert user
